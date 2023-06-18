@@ -14,12 +14,15 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find(post => post._raw.flattenedPath === params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
+  console.log(post.body);
   return (
     <article className="prose dark:prose-invert mx-auto max-w-xl py-8">
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold">{post.title}</h1>
+        <p>{post.description}</p>
         <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-          {format(parseISO(post.date), "yy.MM.d")}
+          {format(parseISO(post.date), "yy.MM.d")}{" "}
+          {Math.ceil(post.readingTime.minutes)}분
         </time>
       </div>
       <div

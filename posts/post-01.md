@@ -31,6 +31,10 @@ _안녕하세요_
 
 안녕하세요.
 
-```jsx
-const test = "테스트 코드 라인입니다.";
+```jsx:app.jsx
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: "#foo" });
+  }
+}
 ```

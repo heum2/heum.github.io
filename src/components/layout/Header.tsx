@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export function Header(): JSX.Element {
   return (
-    <header className="mx-auto my-0 max-w-3xl top-0 px-5">
-      <nav className="flex justify-between items-center h-14">
+    <header className="bg-white dark:bg-black sticky top-0">
+      <nav className="flex justify-between items-center h-14 px-5 mx-auto my-0 max-w-3xl">
         <h1 className="text-lg font-black">
           <Link href="/">heum.dev</Link>
         </h1>
