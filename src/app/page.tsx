@@ -41,9 +41,9 @@ function Home() {
 
   return (
     <div>
-      {/* {posts.map((post, idx) => (
+      {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
-      ))} */}
+      ))}
     </div>
   );
 }
