@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-
-import { useTheme } from "next-themes";
+import { ASide, Footer } from "src/components/layout";
 
 function PostCard(post: Post) {
   return (
@@ -15,9 +14,14 @@ function PostCard(post: Post) {
           {post.title}
         </Link>
       </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date), "yy.MM.d")}
-      </time>
+      <div className="flex mb-2 text-xs text-gray-600">
+        <time dateTime={post.date}>
+          {format(parseISO(post.date), "yy.MM.d")}{" "}
+        </time>
+        <time className="ml-2" dateTime={post.readingTime.minutes}>
+          {Math.ceil(post.readingTime.minutes)}분
+        </time>
+      </div>
       <p>{post.description}</p>
       <ul>
         {post.tags.map(item => (
@@ -37,13 +41,30 @@ function Home() {
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
-  // useEffect only runs on the client, so now we can safely show the UI
-
   return (
-    <div>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
+    <div className="block md:grid grid-cols-12 gap-6">
+      <ASide>hi</ASide>
+
+      <div className="col-span-12 lg:col-span-7">
+        {posts.map((post, idx) => (
+          <PostCard key={idx} {...post} />
+        ))}
+        {posts.map((post, idx) => (
+          <PostCard key={idx} {...post} />
+        ))}
+        {posts.map((post, idx) => (
+          <PostCard key={idx} {...post} />
+        ))}
+        {posts.map((post, idx) => (
+          <PostCard key={idx} {...post} />
+        ))}
+        {posts.map((post, idx) => (
+          <PostCard key={idx} {...post} />
+        ))}
+      </div>
+      <ASide>
+        <Footer />
+      </ASide>
     </div>
   );
 }

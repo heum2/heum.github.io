@@ -1,12 +1,17 @@
 import { Noto_Sans_KR } from "next/font/google";
+import { Metadata } from "next";
+
+import { config } from "config";
 import { Providers } from "./providers";
+import Scripts from "src/components/scripts";
+
 import "./globals.css";
 
 const notosans = Noto_Sans_KR({ weight: "700", subsets: ["latin"] });
 
-export const metadata = {
-  title: "heum.dev",
-  description: "개발 및 일기를 끄적이는 블로그",
+export const metadata: Metadata = {
+  title: config.blog.title,
+  description: config.blog.description,
 };
 
 export default function RootLayout({
@@ -16,8 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="ko">
-      <head />
-      <body className={(notosans.className, "min-h-screen")}>
+      <head>
+        <Scripts />
+      </head>
+      <body
+        className={
+          (notosans.className, "min-h-screen bg-slate-100 dark:bg-black")
+        }
+      >
         <Providers>{children}</Providers>
       </body>
     </html>

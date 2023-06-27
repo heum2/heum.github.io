@@ -1,5 +1,6 @@
 .prose .rehype-code-title {
-  /* @apply rounded-t-lg border border-b-0 px-5 py-3 text-base -mb-2; */
+  @apply dark:bg-cyan-700;
+
   margin-bottom: -0.7rem;
   padding: 0.5em 1em;
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",

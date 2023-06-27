@@ -1,6 +1,8 @@
 import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 
+import Utterances from "src/components/comments";
+
 export const generateStaticParams = async () =>
   allPosts.map(post => ({ slug: post._raw.flattenedPath }));
 
@@ -14,7 +16,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find(post => post._raw.flattenedPath === params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
-  console.log(post.body);
   return (
     <article className="prose dark:prose-invert mx-auto max-w-xl py-8">
       <div className="mb-8 text-center">
@@ -29,6 +30,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         className="[&>*]:mb-3 [&>*:last-child]:mb-0"
         dangerouslySetInnerHTML={{ __html: post.body.html }}
       />
+      <Utterances />
     </article>
   );
 };
