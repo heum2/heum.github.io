@@ -2,6 +2,7 @@ import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { ASide, Footer } from "src/components/layout";
+import Utterances from "src/components/comments/Utterances";
 
 function PostCard(post: Post) {
   return (
@@ -49,7 +50,7 @@ function Home() {
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
-        {posts.map((post, idx) => (
+        {/* {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
         {posts.map((post, idx) => (
@@ -60,7 +61,7 @@ function Home() {
         ))}
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
-        ))}
+        ))} */}
       </div>
       <ASide>
         <Footer />

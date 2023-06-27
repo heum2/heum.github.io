@@ -59,7 +59,7 @@ export const config = {
     enable: true,
     config: {
       repo: "heum2/heum2.github.io",
-      "issue-term": "og:title",
+      "issue-term": "title",
       label: "💬 Utterances",
     },
   },
