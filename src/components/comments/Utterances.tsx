@@ -1,13 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
 
 import { config } from "config";
 
 function Utterances(): JSX.Element {
-  const { theme: darkmode } = useTheme();
-
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
