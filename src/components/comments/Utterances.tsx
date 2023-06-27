@@ -11,7 +11,6 @@ function Utterances(): JSX.Element {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const theme = darkmode === "dark" ? "github-dark" : "github-light";
     const script = document.createElement("script");
     script.src = "https://utteranc.es/client.js";
 
@@ -20,7 +19,7 @@ function Utterances(): JSX.Element {
       script.setAttribute(key, setting[key]);
     });
 
-    script.setAttribute("theme", theme);
+    script.setAttribute("theme", "github-light");
     script.setAttribute("crossorigin", "anonymous");
 
     script.onload = ev => {
@@ -33,7 +32,7 @@ function Utterances(): JSX.Element {
     script.async = true;
 
     ref.current?.appendChild(script);
-  }, [darkmode]);
+  }, []);
 
   if (!config.utterances.enable) {
     return <></>;
