@@ -12,6 +12,11 @@ const notosans = Noto_Sans_KR({ weight: "700", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: config.blog.title,
   description: config.blog.description,
+  keywords: ["Next.js", "React", "JavaScript"],
+  other: {
+    "google-site-verification":
+      config.googleSearchConsole.config.siteVerification,
+  },
 };
 
 export default function RootLayout({
@@ -22,18 +27,6 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="ko">
       <head>
-        {config.googleSearchConsole.enable === true && (
-          <>
-            <meta
-              name="google-site-verification"
-              content={config.googleSearchConsole.config.siteVerification}
-            />
-          </>
-        )}
-        <meta
-          name="google-site-verification"
-          content="pSHTPLBdvZQt4yY4Q27XbwpH-9YyLGDA28C4PzN6hpE"
-        />
         <Scripts />
       </head>
       <body
