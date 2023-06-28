@@ -16,6 +16,7 @@ export const Post = defineDocumentType(() => ({
     date: { type: "date", required: true },
     tags: { type: "list", of: { type: "string" }, required: true },
     series: { type: "string", required: false },
+    thumbnailUrl: { type: "string" },
   },
   computedFields: {
     readingTime: {
@@ -49,21 +50,4 @@ export default makeSource({
       rehypeAccessibleEmojis,
     ],
   },
-  // mdx: {
-  //   remarkPlugins: [remarkGfm],
-  //   rehypePlugins: [
-  //     rehypeSlug,
-  //     rehypeCodeTitles,
-  //     rehypePrism,
-  //     [
-  //       rehypeAutolinkHeadings,
-  //       {
-  //         properties: {
-  //           className: ["anchor"],
-  //         },
-  //       },
-  //     ],
-  //     rehypeAccessibleEmojis,
-  //   ],
-  // },
 });

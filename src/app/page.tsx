@@ -3,33 +3,37 @@ import { allPosts } from "contentlayer/generated";
 
 import { ASide, Footer } from "src/components/layout";
 import { ContractCard, ProfileCard, PostCard } from "src/components/cards";
+import { Tag } from "src/components/tags";
+import { useMemo } from "react";
 
 function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+  const { posts, tags } = useMemo(
+    () => ({
+      posts: allPosts.sort((a, b) =>
+        compareDesc(new Date(a.date), new Date(b.date))
+      ),
+      tags: Array.from(new Set(allPosts.flatMap(item => item.tags))),
+    }),
+    []
   );
 
   return (
     <div className="block md:grid grid-cols-12 gap-6">
       <ASide className="col-span-2">
         <div>
-          <div className="p-1 mb-3">🏷️ Tags</div>
+          <div className="p-1 mb-3 font-bold">🏷️ Tags</div>
           <ul className="gap-1 flex mobile-x-scroll lg:block mb-6">
-            {allPosts
-              .flatMap(item => item.tags)
-              .map(tag => (
-                <li
-                  key={tag}
-                  className="cursor-pointer text-sm p-1 px-4 my-1 flex-shrink-0 rounded-xl text-gray-500 dark:text-white hover:bg-gray-200 dark:hover:bg-zinc-800"
-                >
-                  <a>{tag}</a>
-                </li>
-              ))}
+            {tags.map((tag, idx) => (
+              <Tag key={idx}>{tag}</Tag>
+            ))}
           </ul>
         </div>
       </ASide>
 
       <div className="col-span-12 lg:col-span-7">
+        <div>
+          <div className="p-1 mb-3 font-bold">🏷️ Tags</div>
+        </div>
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}

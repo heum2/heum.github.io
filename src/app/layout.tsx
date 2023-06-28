@@ -22,6 +22,18 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="ko">
       <head>
+        {config.googleSearchConsole.enable === true && (
+          <>
+            <meta
+              name="google-site-verification"
+              content={config.googleSearchConsole.config.siteVerification}
+            />
+          </>
+        )}
+        <meta
+          name="google-site-verification"
+          content="pSHTPLBdvZQt4yY4Q27XbwpH-9YyLGDA28C4PzN6hpE"
+        />
         <Scripts />
       </head>
       <body

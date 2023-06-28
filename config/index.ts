@@ -10,7 +10,7 @@ export const config = {
     name: "heum2",
     image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "frontend developer",
-    bio: "I develop everything using node.",
+    bio: "Coffee is my power ☕️",
     email: "jwh6295@gmail.com",
     linkedin: "eunheum-jo-b9459a1b4",
     github: "heum2",
@@ -38,13 +38,13 @@ export const config = {
 
   // plugin configuration (optional)
   googleAnalytics: {
-    enable: true,
+    enable: process.env.NODE_ENV === "production",
     config: {
       measurementId: process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID || "",
     },
   },
   googleSearchConsole: {
-    enable: false,
+    enable: true,
     config: {
       siteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
     },

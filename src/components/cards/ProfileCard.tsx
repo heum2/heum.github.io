@@ -6,7 +6,7 @@ import { config } from "config";
 export function ProfileCard(): JSX.Element {
   return (
     <div>
-      <div className="p-1 mb-3">💻 Profile</div>
+      <div className="p-1 mb-3 font-bold">💻 Profile</div>
       <div className="rounded-2xl bg-white dark:bg-zinc-700 w-full md:p-4 lg:p-4 mb-9">
         <div className="relative w-full after:content-[''] after:block after:pb-[100%]">
           <Image src={config.profile.image} fill alt="profile" />

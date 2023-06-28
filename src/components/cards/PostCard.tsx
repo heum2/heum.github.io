@@ -1,38 +1,60 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Post } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
-import Link from "next/link";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 export function PostCard(post: Post) {
+  const router = useRouter();
+
+  const handleMovePage = () => {
+    router.push(post.url);
+  };
+
   return (
-    <div className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link
-          href={post.url}
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
-        >
+    <motion.article
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      className="relative overflow-hidden mb-6 md:mb-8 rounded-2xl bg-white dark:bg-zinc-700 hover:shadow-lg transition-shadow cursor-pointer"
+      onClick={handleMovePage}
+    >
+      <div className="p-4 pt-14">
+        <h2 className="text-lg md:text-xl font-medium mb-2 cursor-pointer text-black dark:text-gray-100">
           {post.title}
-        </Link>
-      </h2>
-      <div className="flex mb-2 text-xs text-gray-600">
-        <time className="flex items-center" dateTime={post.date}>
-          <AiOutlineCalendar className="mr-1" />{" "}
-          {format(parseISO(post.date), "yy.MM.d")}{" "}
-        </time>
-        <time className="ml-2" dateTime={post.readingTime.minutes}>
-          {Math.ceil(post.readingTime.minutes)}분
-        </time>
+        </h2>
+        <div className="flex items-center gap-2 mb-2 text-xs text-gray-600 dark:text-gray-100">
+          <time className="flex items-center" dateTime={post.date}>
+            <AiOutlineCalendar className="mr-1" />
+            {format(parseISO(post.date), "yy.MM.d")}
+          </time>
+          <time
+            className="flex items-center"
+            dateTime={post.readingTime.minutes}
+          >
+            <AiOutlineClockCircle className="mr-1" />
+            {Math.ceil(post.readingTime.minutes)}분
+          </time>
+        </div>
+
+        <div className="mb-4">
+          <p className="hidden md:block leading-8 text-gray-700 dark:text-gray-300">
+            {post.description}
+          </p>
+        </div>
+
+        <ul className="flex gap-2">
+          {post.tags.map(item => (
+            <li
+              className="text-xs text-gray-500 font-normal rounded-full bg-gray-200 px-2 py-1 cursor-pointer"
+              key={item}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
-      <p>{post.description}</p>
-      <ul>
-        {post.tags.map(item => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      {/* <div
-          className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        /> */}
-    </div>
+    </motion.article>
   );
 }
