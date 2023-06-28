@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification":
       config.googleSearchConsole.config.siteVerification,
+    "naver-site-verification":
+      config.naverSearchConsole.config.siteVerification,
   },
 };
 

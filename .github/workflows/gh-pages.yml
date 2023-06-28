@@ -17,6 +17,7 @@ jobs:
           touch ./.env
           echo "NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID }}" >> ./.env
           echo "NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}" >> ./.env
+          echo "NEXT_PUBLIC_NAVER_SITE_VERIFICATION=${{ secrets.NEXT_PUBLIC_NAVER_SITE_VERIFICATION }}" >> ./.env
 
       - name: Install and Build 🔧
         uses: actions/setup-node@v3
