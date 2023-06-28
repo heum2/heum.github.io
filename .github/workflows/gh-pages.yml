@@ -12,6 +12,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Create dotenv 🔨
+        run: |
+          touch ./.env
+          echo "NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID }}" >> ./.env
+
       - name: Install and Build 🔧
         uses: actions/setup-node@v3
       - run: npm install
