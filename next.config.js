@@ -5,6 +5,11 @@ const debug = process.env.NODE_ENV !== "production";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  images: {
+    loader: "imgix",
+    path: debug ? "http://localhost:3000/" : "https://heum2.github.io/",
+    unoptimized: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   assetPrefix: !debug ? "https://heum2.github.io" : "", // production 일때 prefix 경로

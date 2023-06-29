@@ -12,7 +12,7 @@ const notosans = Noto_Sans_KR({ weight: "700", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: config.blog.title,
   description: config.blog.description,
-  keywords: ["Next.js", "React", "JavaScript"],
+  keywords: config.seo.keywords,
   verification: {
     google: config.googleSearchConsole.config.siteVerification,
     other: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     description: config.blog.description,
     title: config.blog.title,
-    url: "https://heum2.github.io",
+    url: config.link,
     siteName: config.blog.title,
     locale: "ko_KR",
     images: "https://heum2.github.io/next.svg",

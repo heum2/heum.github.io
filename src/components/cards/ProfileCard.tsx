@@ -9,7 +9,12 @@ export function ProfileCard(): JSX.Element {
       <div className="p-1 mb-3 font-bold">💻 Profile</div>
       <div className="rounded-2xl bg-white dark:bg-zinc-700 w-full md:p-4 lg:p-4 mb-9">
         <div className="relative w-full after:content-[''] after:block after:pb-[100%]">
-          <Image src={config.profile.image} fill alt="profile" />
+          <Image
+            className="object-cover rounded-2xl"
+            src={config.profile.image}
+            fill
+            alt="profile"
+          />
         </div>
         <div className="bg-white p-2 flex flex-col items-center dark:bg-zinc-700 dark:text-white">
           <div className=" text-xl italic font-bold">{config.profile.name}</div>

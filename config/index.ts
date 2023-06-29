@@ -8,7 +8,7 @@ export const config = {
   // profile setting (required)
   profile: {
     name: "heum2",
-    image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
+    image: "/images/profile.jpg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "frontend developer",
     bio: "Coffee is my power ☕️",
     email: "jwh6295@gmail.com",
