@@ -1,10 +1,11 @@
+import { useMemo } from "react";
 import { compareDesc } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { RiArrowDownSFill } from "react-icons/ri";
 
 import { ASide, Footer } from "src/components/layout";
 import { ContractCard, ProfileCard, PostCard } from "src/components/cards";
 import { Tag } from "src/components/tags";
-import { useMemo } from "react";
 
 function Home() {
   const { posts, tags } = useMemo(
@@ -31,8 +32,21 @@ function Home() {
       </ASide>
 
       <div className="col-span-12 lg:col-span-7">
-        <div>
-          <div className="p-1 mb-3 font-bold">🏷️ Tags</div>
+        <div className="flex border-b border-gray-300 mb-4 justify-between items-center">
+          <div className="relative">
+            <div className="text-xl font-bold my-2 dark:text-white flex gap-1 items-center cursor-pointer">
+              🗂️ All Posts
+              <RiArrowDownSFill width="1em" height="1em" />
+            </div>
+          </div>
+          <div className="flex text-sm gap-2">
+            <a className="cursor-pointer text-black font-bold dark:text-white">
+              Desc
+            </a>
+            <a className="cursor-pointer text-gray-500 dark:text-gray-400">
+              Asc
+            </a>
+          </div>
         </div>
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />

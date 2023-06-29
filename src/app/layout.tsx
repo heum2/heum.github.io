@@ -20,6 +20,19 @@ export const metadata: Metadata = {
         config.naverSearchConsole.config.siteVerification,
     },
   },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     description: config.blog.description,
