@@ -13,11 +13,21 @@ export const metadata: Metadata = {
   title: config.blog.title,
   description: config.blog.description,
   keywords: ["Next.js", "React", "JavaScript"],
-  other: {
-    "google-site-verification":
-      config.googleSearchConsole.config.siteVerification,
-    "naver-site-verification":
-      config.naverSearchConsole.config.siteVerification,
+  verification: {
+    google: config.googleSearchConsole.config.siteVerification,
+    other: {
+      "naver-site-verification":
+        config.naverSearchConsole.config.siteVerification,
+    },
+  },
+  openGraph: {
+    type: "website",
+    description: config.blog.description,
+    title: config.blog.title,
+    url: "https://heum2.github.io",
+    siteName: config.blog.title,
+    locale: "ko_KR",
+    images: "https://heum2.github.io/next.svg",
   },
 };
 
