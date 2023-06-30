@@ -5,6 +5,7 @@ import { Post } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function PostCard(post: Post) {
   const router = useRouter();
@@ -20,7 +21,17 @@ export function PostCard(post: Post) {
       className="relative overflow-hidden mb-6 md:mb-8 rounded-2xl bg-white dark:bg-zinc-700 hover:shadow-lg transition-shadow cursor-pointer"
       onClick={handleMovePage}
     >
-      <div className="p-4 pt-14">
+      {post.thumbnailUrl && (
+        <div className="relative w-full pb-[66%] lg:pb-[50%] bg-gray-200 dark:bg-zinc-700">
+          <Image
+            className="object-cover"
+            src={post.thumbnailUrl}
+            alt={post.title}
+            fill
+          />
+        </div>
+      )}
+      <div className="p-4">
         <h2 className="text-lg md:text-xl font-medium mb-2 cursor-pointer text-black dark:text-gray-100">
           {post.title}
         </h2>

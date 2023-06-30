@@ -14,7 +14,7 @@ export const config = {
     email: "jwh6295@gmail.com",
     linkedin: "eunheum-jo-b9459a1b4",
     github: "heum2",
-    instagram: "heumheum_e",
+    instagram: "",
     twitter: "",
   },
   // blog setting (required)

@@ -4,10 +4,9 @@ export const GA_TRACKING_ID = config.googleAnalytics.config.measurementId;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  // window.gtag("config", GA_TRACKING_ID, {
-  //   page_location: url,
-  // });
-  console.log(window, url);
+  window.gtag("config", GA_TRACKING_ID, {
+    page_location: url,
+  });
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
