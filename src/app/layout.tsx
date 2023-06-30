@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Noto_Sans_KR } from "next/font/google";
 import { Metadata } from "next";
 
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
   title: config.blog.title,
   description: config.blog.description,
   keywords: config.seo.keywords,
-  verification: {
-    google: config.googleSearchConsole.config.siteVerification,
-    other: {
-      "naver-site-verification":
-        config.naverSearchConsole.config.siteVerification,
-    },
-  },
+  // verification: {
+  //   google: config.googleSearchConsole.config.siteVerification,
+  //   other: {
+  //     "naver-site-verification":
+  //       config.naverSearchConsole.config.siteVerification,
+  //   },
+  // },
   robots: {
     index: false,
     follow: true,
@@ -51,9 +52,13 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="ko">
-      <head>
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="pSHTPLBdvZQt4yY4Q27XbwpH-9YyLGDA28C4PzN6hpE"
+        />
         <Scripts />
-      </head>
+      </Head>
       <body
         className={
           (notosans.className, "min-h-screen bg-slate-100 dark:bg-black")
