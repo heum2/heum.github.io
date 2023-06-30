@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { Noto_Sans_KR } from "next/font/google";
 import { Metadata } from "next";
 
@@ -51,14 +50,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="ko">
-      <Head>
+    <html lang="ko">
+      <head>
         <meta
           name="google-site-verification"
           content="pSHTPLBdvZQt4yY4Q27XbwpH-9YyLGDA28C4PzN6hpE"
         />
         <Scripts />
-      </Head>
+      </head>
       <body
         className={
           (notosans.className, "min-h-screen bg-slate-100 dark:bg-black")
